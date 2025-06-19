@@ -1,11 +1,11 @@
-# 🛑 myStopinator – AWS Lambda EC2 Auto-Stop Lab
+# AWS Lambda EC2 Auto-Stop Lab
 
-## 📘 Description  
-This lab demonstrates how to automate the shutdown of an EC2 instance using **AWS Lambda** triggered by **EventBridge (CloudWatch Events)** on a scheduled basis. This project strengthens serverless automation skills aligned with SOC, detection engineering, and cloud operations workflows.
+## Description  
+This lab demonstrates the use of a Python-based AWS Lambda function to automatically stop a specific EC2 instance. The function is triggered on a scheduled basis using EventBridge CloudWatch Events, allowing for automated instance management without manual intervention. The lab covers the setup of the Lambda function, configuration of scheduling rules, and validation through CloudWatch metrics and EC2 instance state changes.
 
 ---
 
-## 🧠 Objectives
+## Objectives
 
 - Automatically stop an EC2 instance every minute  
 - Learn how Lambda integrates with EventBridge  
@@ -15,7 +15,7 @@ This lab demonstrates how to automate the shutdown of an EC2 instance using **AW
 
 ---
 
-## 📸 Screenshots & Explanations
+## Lab
 
 ### 1. What is AWS Lambda?
 ![Screenshot 2025-06-08 210034](https://github.com/user-attachments/assets/469289f8-957f-4747-a61f-88ddd7f297d5)
@@ -30,44 +30,24 @@ Creating a new Lambda function from scratch named `myStopinator`, using the Pyth
 
 ### 3. Configuring an EventBridge Trigger for AWS Lambda
 ![Screenshot 2025-06-08 210528](https://github.com/user-attachments/assets/15491d5a-c799-4753-ae92-3e835570173a)
-98iooooooooooooouy777hhhh1
 
 This shows the configuration of an EventBridge trigger for an AWS Lambda funtion. A new rule is being created to invoke the function every minute based on the schedule expression. The schedule type ensures that this expression runs at a fixed rate (once per minute). 
 
-### 4. Trigger View with EventBridge
-![Screenshot 2025-06-08 210528](https://github.com/user-attachments/assets/ab66d1a8-ebe8-4baa-bf81-8f482281edf5)
+### 4. Automating EC2 Shutdowns with Python in AWS Lambda
+![Screenshot 2025-06-08 210956](https://github.com/user-attachments/assets/4de53a1f-caa8-4298-9ba0-0118c7645945)
+![Screenshot 2025-06-08 211142](https://github.com/user-attachments/assets/cff44676-e4de-4b09-9e79-a6b909370044)
 
-**Caption:** Lambda function `myStopinator` is triggered by **EventBridge (CloudWatch Events)** for scheduled execution.
+This displays an AWS Lambda function named "myStopinator" that is set up to stop EC2 instances using the boto3 library with Python. The code defines the region and instance ID, creates an EC2 client, and uses the stop_instances method to shut down tyhe specified instance. 
 
-### 5. EventBridge Rule – Run Every Minute
-![Screenshot 2025-06-08 210956](https://github.com/user-attachments/assets/cd280f63-ff30-4b09-928c-53bd7f65244d)
+### 5. CloudWatch Monitoring
+![Screenshot 2025-06-08 211220](https://github.com/user-attachments/assets/a3b5c586-ae9f-41c3-8241-d75838b34ace)
 
-**Caption:** EventBridge rule created to run every 1 minute using `rate(1 minute)` schedule expression.
+This screenshot shows the monitoring tab for the myStopinator Lambda function. CloudWatch metrics are used to confirm that the function has executed successfully on schedule. Key metricsa such as Invocation, Duration, and Success Rate provide visibility into the function's behavior and performance over time.  
 
-### 6. IAM Role Configuration – Lambda Permissions
-![Screenshot 2025-06-08 211142](https://github.com/user-attachments/assets/e9bfbb32-d2f5-40de-9bff-c966767f3c59)
+### 6. EC2 Console Showing Instance State
+![Screenshot 2025-06-08 211612](https://github.com/user-attachments/assets/9d413dd7-be8f-41e0-9ab7-55737a2db949)
 
-**Caption:** Custom IAM role `myStopinatorRole` provides Lambda with the necessary EC2 and logging permissions.
-
-### 7. Lambda Function Creation Settings
-![Screenshot 2025-06-08 211220](https://github.com/user-attachments/assets/6e83354c-f194-41f3-bdeb-413a319ede0e)
-
-**Caption:** Lambda function setup screen with selected runtime (Python 3.11), x86_64 architecture, and role assignment.
-
-### 8. AWS Lambda Landing Page
-![Screenshot 2025-06-08 211409](https://github.com/user-attachments/assets/ad9cf83f-213a-4afa-ac93-25d39aadc4d7)
-
-**Caption:** AWS Lambda console showing various supported runtimes. This project uses **Python** for script execution.
-
-### 9. EC2 Console Showing Instance State
-![Screenshot 2025-06-08 211458](https://github.com/user-attachments/assets/d45dfe26-cd0a-40c4-a94d-3778b7618a30)
-
-**Caption:** EC2 dashboard shows instance `instance1` is transitioning from `running` to `stopping`, confirming Lambda worked.
-
-### 10. Confirmation: Lambda Successfully Updated
-![Screenshot 2025-06-08 211612](https://github.com/user-attachments/assets/7366ded4-ddae-49c9-a7f1-a6426e6c63bc)
-
-**Caption:** Final deployment confirmation that the Lambda function `myStopinator` was successfully updated and is operational.
+**Caption:** EC2 dashboard shows instance 'instance1' is transitioning from `running` to `stopping`, confirming Lambda worked.
 
 ---
 
