@@ -73,7 +73,7 @@ Here we manage explicit subnet associations for custom route tables. The private
 
 ---
 
-### 6. Configuring a Security Group for HTTP Access
+### 7. Configuring a Security Group for HTTP Access
 
 Here we create a security group named **Web Security Group** that allows inbound HTTP traffic (port 80) from any IP address (`0.0.0.0/0`). This enables public web access to the EC2 instance. 
 
@@ -81,7 +81,7 @@ Here we create a security group named **Web Security Group** that allows inbound
 
 ---
 
-### 6. Finalizing and Deploying the Web Server
+### 8. Finalizing and Deploying the Web Server
 
 At last, we finalize the instance configuration by assigning it to the appropriate subnet and security group, then proceed to launch. This concludes the lab by successfully deploying a web-accessible EC2 instance inside our custom VPC, demonstrating the complete provisioning of an IaaS networking environment.
 
